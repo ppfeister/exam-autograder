@@ -33,5 +33,5 @@ jobs:
         username: ${{ secrets.DEPLOYMENT_USER }}
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: ${{ secrets.DEPLOYMENT_PORT }}
-        source: /
-        target: ${{ secrets.DEPLOYMENT_LOC }}${{secrets.DEPLOYMENT_URI_DEV }}
+        source: '.'
+        target: ${{ secrets.DEPLOYMENT_LOC }}${{secrets.DEPLOYMENT_URI_DEV }}/public/
