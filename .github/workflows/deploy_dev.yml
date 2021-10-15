@@ -1,6 +1,6 @@
 # Deploy develop branch to EC2
 
-name: Deploy new dev
+name: Deploy dev
 
 on:
   push:
