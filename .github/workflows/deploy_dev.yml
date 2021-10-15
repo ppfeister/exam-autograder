@@ -21,7 +21,8 @@ jobs:
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: ${{ secrets.DEPLOYMENT_PORT }}
         script: |
-          cd ${{ secrets.DEPLOYMENT_LOC }}${{ secrets.DEPLOYMENT_URI_DEV }}
+          cd ${{ secrets.DEPLOYMENT_LOC }}
+          cd ${{ secrets.DEPLOYMENT_URI_DEV }}
           rm -rf ./public.old/*
           mv ./public/* ./public.old/
     - name: Checkout new deployment
