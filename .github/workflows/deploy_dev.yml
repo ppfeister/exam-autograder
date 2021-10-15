@@ -23,8 +23,7 @@ jobs:
         script: |
           cd ${{ secrets.DEPLOYMENT_LOC }}
           cd ${{ secrets.DEPLOYMENT_URI_DEV }}
-          rm -rf ./public.old/*
-          mv ./public/* ./public.old/
+          ./cleanup.sh
     - name: Checkout new deployment
       uses: actions/checkout@master
     - name: Copy new deployment to server
