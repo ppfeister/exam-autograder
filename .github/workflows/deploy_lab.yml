@@ -23,9 +23,8 @@ jobs:
         script: |
           cd ${{ secrets.DEPLOYMENT_LOC }}
           cd ${{ secrets.DEPLOYMENT_URI_LAB }}
-          touch test.txt
-          rm -rf ./public.old/*
-          mv ./public/* ./public.old/
+          rm -rf public.old/*
+          mv public/* public.old/
     - name: Checkout new deployment
       uses: actions/checkout@master
     - name: Copy new deployment to server
