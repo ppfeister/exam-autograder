@@ -1,7 +1,13 @@
 # Programming Exam Autograder
 Further information to be added as project progresses.
 
-### Dependencies
-- Apache 2
+### Hard Dependencies
 - PHP 7.4 Support
-- SQLite 3 (can be updated to use other database types)
+
+### Soft Dependencies
+- MySQL Database (used for user data, etc)
+- MongoDB Database (used for user submissions, question banks)
+Project was developed to use these, but can be easily adapted to use alternatives.
+
+### Recommendations
+- Apache 2
