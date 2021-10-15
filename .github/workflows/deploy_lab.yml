@@ -24,8 +24,9 @@ jobs:
           cd ${{ secrets.DEPLOYMENT_LOC }}${{ secrets.DEPLOYMENT_URI_LAB }}
           rm -rf ./public.old/*
           mv ./public/* ./public.old/
-    - name: Copy new deployment
+    - name: Checkout new deployment
       uses: actions/checkout@master
+    - name: Copy new deployment to server
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.DEPLOYMENT_URI_LAB }}
