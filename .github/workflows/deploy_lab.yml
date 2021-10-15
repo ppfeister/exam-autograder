@@ -20,10 +20,7 @@ jobs:
         username: ${{ secrets.DEPLOYMENT_USER }}
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: ${{ secrets.DEPLOYMENT_PORT }}
-        debug: true
         script: |
-          echo "Test"
-          whoami
           cd ${{ secrets.DEPLOYMENT_LOC }}${{ secrets.DEPLOYMENT_URI_LAB }}
           rm -rf ./public.old/*
           mv ./public/* ./public.old/
