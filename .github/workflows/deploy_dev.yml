@@ -1,6 +1,6 @@
 # Deploy develop branch to EC2
 
-name: Deploy new version
+name: Deploy new dev
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   preserve:
-    name: Prepare server
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
     - name: Preserve old deployment
