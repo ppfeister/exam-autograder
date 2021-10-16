@@ -1,5 +1,6 @@
 @import "colors.css";
 @import "fonts.css";
+@import "forms.css";
 
 /* reset browser default style */
 * {
@@ -17,13 +18,20 @@ body {
 }
 
 header {
-  padding-top: 1vh;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 2em;
+  padding: 1vh 1rem 1vh 1rem;
   background-color: var(--lightmode-primary-3);
+  box-shadow: 0 1px 5px 0 var(--lightmode-shadow-1);
 }
 
-header h1 {
+header div {
+  display: inline-block;
+}
+
+h1 a:link,
+h1 a:visited,
+h1 a:hover,
+h1 a:active {
+  font-size: 1.5em;
   color: var(--lightmode-complement-2);
+  text-decoration: none;
 }

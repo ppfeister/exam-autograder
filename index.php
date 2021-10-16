@@ -9,16 +9,13 @@
 </head>
 <body>
     <header>
-        <h1>Code exam</h1>
+        <div><h1><a href="">bitlab</a></h1></div>
+        <div id="login-toolbar">
+            <form>
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+            </form>
+        </div>
     </header>
-    <div>
-        <p>Sign in</p>
-        <form>
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-        </form>
-        <button type="submit" form="sign-in" value="Submit">Sign in</button>
-        <button>Sign up</button>
-    </div>
 </body>
 </html>

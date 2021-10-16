@@ -1,4 +1,5 @@
 :root {
+  /* light mode colors */
   --lightmode-primary-1: #d1d6d8;
   --lightmode-primary-2: #c3d2da;
   --lightmode-primary-3: #85aec5;
@@ -9,4 +10,7 @@
   --lightmode-complement-3: #ffd7a7;
   --lightmode-complement-4: #ffbc6d;
   --lightmode-complement-5: #ffa233;
+
+  /* light mode extras */
+  --lightmode-shadow-1: #ababab;
 }

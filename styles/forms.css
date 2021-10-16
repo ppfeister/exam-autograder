@@ -1,0 +1,17 @@
+#login-toolbar {
+  float: right;
+}
+
+#login-toolbar form {
+  position: relative;
+  bottom: -0.3em;
+}
+
+#login-toolbar form input {
+  color: var(--lightmode-complement-1);
+  margin-right: 2em;
+  background: transparent;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: var(--lightmode-primary-2);
+}
