@@ -1,0 +1,29 @@
+@import "colors.css";
+@import "fonts.css";
+
+/* reset browser default style */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  background-color: var(--lightmode-primary-1);
+}
+
+header {
+  padding-top: 1vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 2em;
+  background-color: var(--lightmode-primary-3);
+}
+
+header h1 {
+  color: var(--lightmode-complement-2);
+}
