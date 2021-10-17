@@ -12,3 +12,8 @@ Project was developed to use these, but can be easily adapted to use alternative
 
 ### Recommendations
 - Apache 2
+
+---
+
+#### Attributions
+Material Design Icons - google/material-design-icons
