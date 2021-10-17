@@ -7,6 +7,7 @@ Further information to be added as project progresses.
 ### Soft Dependencies
 - MySQL Database (used for user data, etc)
 - MongoDB Database (used for user submissions, question banks)
+
 Project was developed to use these, but can be easily adapted to use alternatives.
 
 ### Recommendations
