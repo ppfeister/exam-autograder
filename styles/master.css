@@ -32,6 +32,15 @@ h1 a:visited,
 h1 a:hover,
 h1 a:active {
   font-size: 1.5em;
-  color: var(--lightmode-complement-2);
+  color: var(--lightmode-font-1);
   text-decoration: none;
+}
+
+button {
+  opacity: var(--lightondark-button-opacity-idle);
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: var(--lightondark-button-opacity-hover);
 }

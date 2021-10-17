@@ -11,6 +11,17 @@
   --lightmode-complement-4: #ffbc6d;
   --lightmode-complement-5: #ffa233;
 
+  /* light mode font colors */
+  --lightmode-font-1: #fff2e3;
+
   /* light mode extras */
   --lightmode-shadow-1: #ababab;
+
+  /* opacities */
+  --lightondark-button-opacity-idle: 0.7;
+  --lightondark-button-opacity-hover: 1;
+  --lightondark-button-opacity-inactive: 0.3;
+  --darkonlight-button-opacity-idle: 0.2;
+  --darkonlight-button-opacity-hover: 0.54;
+  --darkonlight-button-opacity-inactive: 0.3;
 }
