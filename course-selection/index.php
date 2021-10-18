@@ -14,6 +14,7 @@ require_once('../common/header-internal.php');
 ?>
     <!--<div class="section-menu"></div>-->
     <div class="section-main">
+        <h2>Assigned courses</h2>
         <div class="course-selection-block first-item">
             <div class="course-info">
                 <span class="course-name">CS 490</span>
