@@ -29,6 +29,7 @@
 
 .assignment-listing .assignment-desc {
   margin-left: 3rem;
+  overflow-x: scroll;
 }
 
 .assignment-listing .assignment-duedate {

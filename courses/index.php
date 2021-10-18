@@ -6,7 +6,7 @@
     <meta name="description" content="Coding examination website with automatic grading of student-submitted code">
     <title>bitlab - Student Coding Lab</title>
     <link rel="stylesheet" href="../styles/master.css" type="text/css">
-    <link rel="stylesheet" href="./courses.css" type="text/css">
+    <link rel="stylesheet" href="courses.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 </head>
 <body>
