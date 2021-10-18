@@ -6,10 +6,11 @@
     <meta name="description" content="Coding examination website with automatic grading of student-submitted code">
     <title>bitlab - Student Coding Lab</title>
     <link rel="stylesheet" href="../styles/master.css" type="text/css">
+    <link rel="stylesheet" href="./courses.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 </head>
 <body>
-<?php require_once('../common/header-internal.php'); ?>
+    <?php require_once('../common/header-internal.php'); ?>
     <!--<div class="section-menu"></div>-->
     <div class="section-main">
         <h2>Assigned courses</h2>
@@ -80,6 +81,6 @@
             </div>
         </div>
     </div>
-<?php require_once('../common/footer.php'); ?>
+    <?php require_once('../common/footer.php'); ?>
 </body>
 </html>

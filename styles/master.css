@@ -1,7 +1,6 @@
 @import "colors.css";
 @import "fonts.css";
 @import "forms.css";
-@import "courses.css";
 
 /* reset browser default style */
 * {
@@ -12,6 +11,12 @@
   font-size: 100%;
   vertical-align: baseline;
   background: transparent;
+}
+
+/* vars for this doc only */
+:root {
+  --footer-height: 0;
+  --footer-height-negative: 0;
 }
 
 body {
@@ -26,6 +31,11 @@ header {
 
 header div {
   display: inline-block;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  margin-bottom: var(--footer-height-negative);
 }
 
 h1 a:link,
