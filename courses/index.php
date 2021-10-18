@@ -9,9 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 </head>
 <body>
-<?php
-require_once('../common/header-internal.php');
-?>
+<?php require_once('../common/header-internal.php'); ?>
     <!--<div class="section-menu"></div>-->
     <div class="section-main">
         <h2>Assigned courses</h2>
@@ -82,5 +80,6 @@ require_once('../common/header-internal.php');
             </div>
         </div>
     </div>
+<?php require_once('../common/footer.php'); ?>
 </body>
 </html>
