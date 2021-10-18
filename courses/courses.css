@@ -1,23 +1,3 @@
-.subsection-level1:not(.first-item) {
-  border-top-width: 1px;
-  border-style: dashed;
-  border-color: var(--lightmode-primary-2);
-  margin-top: 1rem;
-  padding-top: 1rem;
-}
-
-.subsection-level1 .course-info {
-  margin-bottom: 0.2rem;
-}
-
-.subsection-level1 .course-name {
-  font-size: 1.2em;
-}
-
-.subsection-level1 .instructor-name {
-  font-size: 1em;
-}
-
 .assignment-listing {
   margin: 0 -1rem;
   padding: 0.2rem 1rem 0;

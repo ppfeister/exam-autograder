@@ -15,8 +15,8 @@
     <div class="section-main">
         <h2>Assigned courses</h2>
         <div class="subsection-level1 first-item">
-            <div class="course-info">
-                <span class="course-name">CS 490 - Design in Software Engineering</span>
+            <div class="subsection-level1-info">
+                <span class="subsection-level1-name">CS 490 - Design in Software Engineering</span>
             </div>
             <div class="course-assignment-list">
                 <div class="assignment-listing">
@@ -37,8 +37,8 @@
             </div>
         </div>
         <div class="subsection-level1">
-            <div class="course-info">
-                <span class="course-name">CS 490 - Design in Software Engineering</span>
+            <div class="subsection-level1-info">
+                <span class="subsection-level1-name">CS 490 - Design in Software Engineering</span>
             </div>
             <div class="course-assignment-list">
                 <div class="assignment-listing">
@@ -59,8 +59,8 @@
             </div>
         </div>
         <div class="subsection-level1">
-            <div class="course-info">
-                <span class="course-name">CS 490 - Design in Software Engineering</span>
+            <div class="subsection-level1-info">
+                <span class="subsection-level1-name">CS 490 - Design in Software Engineering</span>
             </div>
             <div class="course-assignment-list">
                 <div class="assignment-listing">

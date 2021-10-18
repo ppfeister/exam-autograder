@@ -72,3 +72,19 @@ button:hover {
   margin: 0 -1rem 1rem;
   padding: 0 0 0.5rem 1rem;
 }
+
+.subsection-level1:not(.first-item) {
+  border-top-width: 1px;
+  border-style: dashed;
+  border-color: var(--lightmode-primary-2);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.subsection-level1 .subsection-level1-info {
+  margin-bottom: 0.2rem;
+}
+
+.subsection-level1 .subsection-level1-name {
+  font-size: 1.2em;
+}
