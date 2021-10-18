@@ -1,0 +1,41 @@
+.course-selection-block:not(.first-item) {
+  border-top-width: 1px;
+  border-style: dashed;
+  border-color: var(--lightmode-primary-2);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.course-selection-block .course-name {
+  font-size: 1.2em;
+}
+
+.course-selection-block .instructor-name {
+  font-size: 1em;
+}
+
+.assignment-listing {
+  padding: 0.1rem 0;
+}
+
+.assignment-listing:hover {
+  background-color: var(--lightmode-primary-2);
+}
+
+.assignment-listing .assignment-desc {
+  margin-left: 3rem;
+}
+
+.assignment-listing .assignment-duedate {
+  float: right;
+}
+
+.assignment-listing .status-icon {
+  vertical-align: bottom;
+  margin-left: 1em;
+}
+
+.assignment-listing .material-icons-sharp {
+  font-size: 100%;
+  vertical-align: top;
+}
