@@ -5,6 +5,7 @@
 
 .assignment-listing:hover {
   background-color: var(--lightmode-primary-2);
+  cursor: pointer;
 }
 
 .assignment-listing .assignment-desc {
