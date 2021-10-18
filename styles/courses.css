@@ -1,4 +1,4 @@
-.course-selection-block:not(.first-item) {
+.course-block:not(.first-item) {
   border-top-width: 1px;
   border-style: dashed;
   border-color: var(--lightmode-primary-2);
@@ -6,17 +6,21 @@
   padding-top: 1rem;
 }
 
-.course-selection-block .course-name {
+.course-block .course-info {
+  margin-bottom: 0.2rem;
+}
+
+.course-block .course-name {
   font-size: 1.2em;
 }
 
-.course-selection-block .instructor-name {
+.course-block .instructor-name {
   font-size: 1em;
 }
 
 .assignment-listing {
   margin: 0 -1rem;
-  padding: 0.1rem 1rem;
+  padding: 0.2rem 1rem 0;
 }
 
 .assignment-listing:hover {
