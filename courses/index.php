@@ -14,7 +14,7 @@
     <!--<div class="section-menu"></div>-->
     <div class="section-main">
         <h2>Assigned courses</h2>
-        <div class="course-block first-item">
+        <div class="subsection-level1 first-item">
             <div class="course-info">
                 <span class="course-name">CS 490 - Design in Software Engineering</span>
             </div>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="course-block">
+        <div class="subsection-level1">
             <div class="course-info">
                 <span class="course-name">CS 490 - Design in Software Engineering</span>
             </div>
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="course-block">
+        <div class="subsection-level1">
             <div class="course-info">
                 <span class="course-name">CS 490 - Design in Software Engineering</span>
             </div>

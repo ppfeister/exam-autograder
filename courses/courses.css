@@ -1,4 +1,4 @@
-.course-block:not(.first-item) {
+.subsection-level1:not(.first-item) {
   border-top-width: 1px;
   border-style: dashed;
   border-color: var(--lightmode-primary-2);
@@ -6,15 +6,15 @@
   padding-top: 1rem;
 }
 
-.course-block .course-info {
+.subsection-level1 .course-info {
   margin-bottom: 0.2rem;
 }
 
-.course-block .course-name {
+.subsection-level1 .course-name {
   font-size: 1.2em;
 }
 
-.course-block .instructor-name {
+.subsection-level1 .instructor-name {
   font-size: 1em;
 }
 
