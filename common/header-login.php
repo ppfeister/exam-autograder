@@ -8,3 +8,4 @@
         </form>
     </div>
 </header>
+<div class="page-wrapper"> <!-- closed in footer -->

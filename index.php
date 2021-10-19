@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 </head>
 <body>
-<?php
-require_once('common/header-login.php');
-?>
+<?php require_once('common/header-login.php'); ?>
+<?php require_once('common/footer.php'); ?>
 </body>
 </html>
