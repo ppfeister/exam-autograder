@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 h1 {
   font-family: 'Roboto Mono', monospace;
+}
+
+h2 { 
+  margin: 1rem;
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 20px;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h4 {
+  margin-left: 1vw;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
 }
