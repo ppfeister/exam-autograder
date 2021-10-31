@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Coding examination website with automatic grading of student-submitted code">
     <title>Coding Exam Software</title>
-    <link rel="stylesheet" href="styles/master.css" type="text/css">
+    <link rel="stylesheet" href="../styles/master.css" type="text/css">
 </head>
 <body>
     <header> <!-- title -->
