@@ -11,12 +11,27 @@
 
 require_once 'dbconfig.php';
 
-$user = "";
-$pword = "";
+if(isset($_POST['but_submit']) {
+    $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
+    $password = mysqli_real_escape_string($con,$POST['txt_pwd']);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-}
+    if ($uname != "" && $password != "") {
+        //check for passwords within system
+
+        $sql_query = "select count(*) as cntUser 
+            from user 
+            where username='".$uname."' and password='".$password."'";
+        $resuilt = mysqli_query($con,$sql_query);
+        $row = mysqli_query($con,$sql_query);
+        $count = $row['cntUser'];
+
+        if ($count > 0) {
+            //set page to courses page
+        }else {
+            echo "wrong password lmao";
+        }
+    }
+})
 
 ?>
 
@@ -35,8 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div><h1><a href="">Bitlab</a></h1></div>
         <div id="login-toolbar">
             <form>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
+                <input type="text" id="txt_uname" name="txt_uname" placeholder="Username">
+                <input type="password" id="txt_uname" name="txt_pwd" placeholder="Password">
             </form>
         </div>
     </header>
