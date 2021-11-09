@@ -9,9 +9,10 @@
 
 <?php
 
-require_once 'dbconfig.php';
+
 
 if(isset($_POST['but_submit'])) {
+    $con = mysqli_connect('localhost',$user, $username, 'table');
     $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
     $password = mysqli_real_escape_string($con,$POST['txt_pwd']);
 
