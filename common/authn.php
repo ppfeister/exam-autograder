@@ -12,17 +12,17 @@ if(isset($_POST['but_submit'])) {
 
     if ($html_uname != "" && $html_pword != "") {
 
-        $sql_username = mysqli_query($con,"SELECT Username FROM `bitlab`.`users`");
-        $sql_password = mysqli_query($con,"SELECT Password FROM `bitlab`.`users`");
+        $sql_userpw = mysqli_query($con,"SELECT GUID FROM bitlab.users WHERE Username=“$html_uname” and Password=$html_pass");
+        //$sql_password = mysqli_query($con,"SELECT $html_pword FROM `bitlab`.`users`");
 
         //$result = mysqli_query($con,$sql_query);
         //$row = mysqli_query($con,$sql_query);
         //$count = $row['cntUser'];
 
-        if (strcmp($html_uname, $sql_username) && strcmp($html_pword, $sql_password)) {
-            //set page to courses page
-        }else {
-            echo "wrong password";
+        if (mysqli_num_rows($sql_userpw) < 1) {
+            echo "wrong password"
+        }else if {
+            //continue to page
         }
     }
 }
