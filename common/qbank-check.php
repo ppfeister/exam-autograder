@@ -1,21 +1,20 @@
-<?php
+<?php include '../srv_utils/dbconfig.php';
     // This file manages the storing of qbanks and the comparing 
     //of different answers. We utilize 2 different databases
-    //
-    //
 
-    $db_c = 'correct_answer', $db = 'input_answer';
+
+
     $con = mysqli_connect('localhost',$user, $username, $db_c);
     $con_input = mysqli_connect('localhost',$user, $username, $db);
 
     $answer_correct = array();
     $answer = array();
 
-    while ($row = mysql_fetch_array($con)) {
+    while ($row = mysqli_fetch_array($con)) {
         $answer_correct[] = $row['column-x'];
     }
 
-    while ($row = mysql_fetch_array($con_input)) {
+    while ($row = mysqli_fetch_array($con_input)) {
         $answer[] = $row['column-x'];
     }
 
