@@ -20,8 +20,8 @@ if(isset($_POST['but_submit'])) {
         //$count = $row['cntUser'];
 
         if (mysqli_num_rows($sql_userpw) < 1) {
-            echo "wrong password"
-        }else if {
+            //error page
+        }else {
             //continue to page
         }
     }
