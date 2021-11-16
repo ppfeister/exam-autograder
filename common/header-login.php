@@ -1,5 +1,9 @@
 <?php
-require_once '../srv_utils/dbconfig.php';
+
+$host = getenv("MYSQL_PROD_URI");
+$dbname = "bitlab";
+$username = getenv("MYSQL_PROD_USER");
+$password = getenv("MYSQL_PROD_TOK");
 
 $con = mysqli_connect($host, $username, $password, $dbname);
 //$uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
