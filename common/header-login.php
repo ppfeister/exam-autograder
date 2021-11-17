@@ -1,13 +1,6 @@
-<?php
-
-$host = getenv("MYSQL_PROD_URI");
-$dbname = "bitlab";
-$username = getenv("MYSQL_PROD_USER");
-$password = getenv("MYSQL_PROD_TOK");
-
+<?php include '../srv_utils/dbconfig.php';
+session_start();
 $con = mysqli_connect($host, $username, $password, $dbname);
-//$uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
-//$password = mysqli_real_escape_string($con,$POST['txt_pwd']);
 
 $form_user = $_POST['txt_uname'];
 $form_pass = $_POST['txt_pwd'];
@@ -15,16 +8,14 @@ $form_pass = $_POST['txt_pwd'];
 if ($form_user != "" && $form_pass != "") {
 
     $login_query_result = mysqli_query($con,"SELECT `GUID` FROM `bitlab`.`users` WHERE `Username`=\"$form_user\" and `Password`=\"$form_pass\"");
-    //$sql_password = mysqli_query($con,"SELECT $html_pword FROM `bitlab`.`users`");
+    
 
-    //$result = mysqli_query($con,$sql_query);
-    //$row = mysqli_query($con,$sql_query);
-    //$count = $row['cntUser'];
-
-    if (mysqli_num_rows($login_query_result) < 1) {
-        alert("failed");
+    if (mysqli_num_rows($login_query_result) == 1) {
+        $_SESSION["guid"] = $login_query_result;
+        $_SESSION["loggedin"] = true;
+        
     }else {
-        alert("match");
+
     }
 }
 ?>
