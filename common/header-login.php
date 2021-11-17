@@ -16,17 +16,19 @@ if($con->connect_error){
 //$uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
 //$password = mysqli_real_escape_string($con,$POST['txt_pwd']);
 
-$form_user = $_POST['txt_uname'];
-$form_pass = $_POST['txt_pwd'];
+if(isset($_POST['submit'])) {
+    $form_user = $_POST['txt_uname'];
+    $form_pass = $_POST['txt_pwd'];
 
-if ($form_user != "" && $form_pass != "") {
-    $login_query_result = mysqli_query($con,"SELECT `GUID` FROM `bitlab`.`users` WHERE `Username`=\"$form_user\" and `Password`=\"$form_pass\"");
-    if ($login_query_result->num_rows > 0) {
-        $_SESSION['username'] = $form_user;
-        header("location:courses/index.php");
-        die;
-    }else {
-        alert("failed");
+    if ($form_user != "" && $form_pass != "") {
+        $login_query_result = mysqli_query($con, "SELECT `GUID` FROM `bitlab`.`users` WHERE `Username`=\"$form_user\" and `Password`=\"$form_pass\"");
+        if ($login_query_result->num_rows > 0) {
+            $_SESSION['username'] = $form_user;
+            header("location:courses/index.php");
+            die;
+        } else {
+            alert("failed");
+        }
     }
 }
 ?>
@@ -34,7 +36,7 @@ if ($form_user != "" && $form_pass != "") {
 <header>
     <div><h1><a href="">bitlab</a></h1></div>
     <div id="login-toolbar">
-        <form>
+        <form method="post">
             <input type="text" id="txt_uname" name="txt_uname" placeholder="Username">
             <input type="password" id="txt_uname" name="txt_pwd" placeholder="Password">
             <button type="submit"><span class="material-icons-sharp">login</span></button>
