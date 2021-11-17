@@ -1,11 +1,18 @@
 <?php
-
+// DB Info Begin
+session_start();
 $host = getenv("MYSQL_PROD_URI");
 $dbname = "bitlab";
 $username = getenv("MYSQL_PROD_USER");
 $password = getenv("MYSQL_PROD_TOK");
 
 $con = mysqli_connect($host, $username, $password, $dbname);
+
+if($con->connect_error){
+    die("Connection failed: " . $con->connect_error);
+}
+// DB Info End
+
 //$uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
 //$password = mysqli_real_escape_string($con,$POST['txt_pwd']);
 
@@ -13,18 +20,13 @@ $form_user = $_POST['txt_uname'];
 $form_pass = $_POST['txt_pwd'];
 
 if ($form_user != "" && $form_pass != "") {
-
     $login_query_result = mysqli_query($con,"SELECT `GUID` FROM `bitlab`.`users` WHERE `Username`=\"$form_user\" and `Password`=\"$form_pass\"");
-    //$sql_password = mysqli_query($con,"SELECT $html_pword FROM `bitlab`.`users`");
-
-    //$result = mysqli_query($con,$sql_query);
-    //$row = mysqli_query($con,$sql_query);
-    //$count = $row['cntUser'];
-
-    if (mysqli_num_rows($login_query_result) < 1) {
-        alert("failed");
+    if ($login_query_result->num_rows > 0) {
+        $_SESSION['username'] = $form_user;
+        header("location:courses/index.php");
+        die;
     }else {
-        alert("match");
+        alert("failed");
     }
 }
 ?>
