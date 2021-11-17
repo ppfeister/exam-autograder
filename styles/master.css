@@ -1,0 +1,90 @@
+@import "colors.css";
+@import "fonts.css";
+@import "forms.css";
+
+/* reset browser default style */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* vars for this doc only */
+:root {
+  --footer-height: 0;
+  --footer-height-negative: 0;
+}
+
+body {
+  background-color: var(--lightmode-primary-1);
+}
+
+header {
+  padding: 1vh 1rem 1vh 1rem;
+  background-color: var(--lightmode-primary-3);
+  box-shadow: 0 1px 5px 0 var(--lightmode-shadow-1);
+}
+
+header div {
+  display: inline-block;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  margin-bottom: var(--footer-height-negative);
+}
+
+h1 a:link,
+h1 a:visited,
+h1 a:hover,
+h1 a:active {
+  font-size: 1.5em;
+  color: var(--lightmode-font-1);
+  text-decoration: none;
+}
+
+button {
+  opacity: var(--lightondark-button-opacity-idle);
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: var(--lightondark-button-opacity-hover);
+}
+
+.section-main {
+  margin: 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 0.2rem;
+  background-color: var(--lightmode-complement-1);
+  box-shadow: 0 1px 5px 0 var(--lightmode-shadow-1);
+}
+
+.section-main > h2 {
+  font-size: 1.3em;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: var(--lightmode-primary-2);
+  margin: 0 -1rem 1rem;
+  padding: 0 0 0.5rem 1rem;
+}
+
+.subsection-level1:not(.first-item) {
+  border-top-width: 1px;
+  border-style: dashed;
+  border-color: var(--lightmode-primary-2);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.subsection-level1 .subsection-level1-info {
+  margin-bottom: 0.2rem;
+}
+
+.subsection-level1 .subsection-level1-name {
+  font-size: 1.2em;
+}

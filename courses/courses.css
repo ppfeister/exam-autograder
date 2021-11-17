@@ -1,0 +1,28 @@
+.assignment-listing {
+  margin: 0 -1rem;
+  padding: 0.2rem 1rem 0;
+}
+
+.assignment-listing:hover {
+  background-color: var(--lightmode-primary-2);
+  cursor: pointer;
+}
+
+.assignment-listing .assignment-desc {
+  margin-left: 3rem;
+  overflow-x: scroll;
+}
+
+.assignment-listing .assignment-duedate {
+  float: right;
+}
+
+.assignment-listing .status-icon {
+  vertical-align: bottom;
+  margin-left: 1em;
+}
+
+.assignment-listing .material-icons-sharp {
+  font-size: 100%;
+  vertical-align: top;
+}

@@ -1,0 +1,23 @@
+#login-toolbar {
+  float: right;
+}
+
+#login-toolbar form {
+  vertical-align: middle;
+}
+
+#login-toolbar input {
+  color: var(--lightmode-font-1);
+  margin-left: 1.5em;
+  margin-right: 0.5em;
+  background: transparent;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: var(--lightmode-primary-2);
+}
+
+#login-toolbar button {
+  color: var(--lightmode-font-1);
+  display: inline-flex;
+  vertical-align: inherit;
+}
