@@ -10,7 +10,7 @@ if ($form_user != "" && $form_pass != "") {
     $login_query_result = mysqli_query($con,"SELECT `GUID` FROM `bitlab`.`users` WHERE `Username`=\"$form_user\" and `Password`=\"$form_pass\"");
     
 
-    if (mysqli_num_rows($login_query_result) == 1) {
+    if (mysqli_num_rows($login_query_result) > 0) {
         $_SESSION["guid"] = $login_query_result;
         $_SESSION["loggedin"] = true;
         
@@ -25,7 +25,7 @@ if ($form_user != "" && $form_pass != "") {
     <div id="login-toolbar">
         <form method="POST">
             <input type="text" id="txt_uname" name="txt_uname" placeholder="Username">
-            <input type="password" id="txt_uname" name="txt_pwd" placeholder="Password">
+            <input type="password" id="txt_pwd" name="txt_pwd" placeholder="Password">
             <button type="submit"><span class="material-icons-sharp">login</span></button>
         </form>
     </div>
