@@ -9,7 +9,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 </head>
 <body>
-<?php require_once('common/header-login.php'); ?>
-<?php require_once('common/footer.php'); ?>
+<?php
+    require_once('common/header-login.php');
+    if (isset($_SESSION["guid"])){
+        header("location: courses/index.php");
+        exit;
+    }
+    require_once('common/footer.php');
+?>
 </body>
 </html>
