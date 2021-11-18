@@ -1,8 +1,6 @@
 <?php
-$host = getenv("MYSQL_PROD_URI");
-$dbname = "bitlab";
-$username = getenv("MYSQL_PROD_USER");
-$password = getenv("MYSQL_PROD_TOK");
-
-$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+$dbhost = getenv("MYSQL_PROD_URI");
+$dbuser = getenv("MYSQL_PROD_USER");
+$dbpass = getenv("MYSQL_PROD_TOK");
+$con = mysqli_connect($dbhost, $dbuser, $dbpass);
 ?>
