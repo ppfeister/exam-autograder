@@ -9,9 +9,6 @@ $password = getenv("MYSQL_PROD_TOK");
 $con = mysqli_connect($host, $username, $password, $dbname);
 // DB Info End
 
-//$uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
-//$password = mysqli_real_escape_string($con,$POST['txt_pwd']);
-
 if(isset($_POST['submit'])) {
     $form_user = $_POST['txt_uname'];
     $form_pass = $_POST['txt_pwd'];
