@@ -1,25 +1,22 @@
 <?php
-// DB Info Begin
-session_start();
-$host = getenv("MYSQL_PROD_URI");
-$dbname = "bitlab";
-$username = getenv("MYSQL_PROD_USER");
-$password = getenv("MYSQL_PROD_TOK");
-
-$con = mysqli_connect($host, $username, $password, $dbname);
-// DB Info End
+require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
 
 if(isset($_POST['submit'])) {
     $form_user = $_POST['txt_uname'];
     $form_pass = $_POST['txt_pwd'];
     if ($form_user != "" && $form_pass != "") {
-        $login_query_result = mysqli_query($con, "SELECT `GUID` FROM `bitlab`.`users` WHERE `Username`=\"$form_user\" and `Password`=\"$form_pass\"");
-        if ($login_query_result->num_rows > 0) {
-            $_SESSION['username'] = $form_user;
-            header("location:courses/index.php");
+        $query = mysqli_query($con, "SELECT `GUID`, `Username`, `Admin Role`, `First name`, `Last name` FROM `bitlab`.`users` WHERE `Username`=\"$form_user\" and `Password`=\"$form_pass\"");
+        $login_query_result = mysqli_fetch_assoc($query);
+        if ($login_query_result != false) {
+            $_SESSION['username'] = $login_query_result['Username'];
+            $_SESSION['guid'] = $login_query_result['GUID'];
+            $_SESSION['first_name'] = $login_query_result['First name'];
+            $_SESSION['last_name'] = $login_query_result['Last name'];
+            $_SESSION['access_level'] = $login_query_result['Admin Role'];
+            $_SESSION['logged_in'] = true;
+            header("location:/courses");
             die;
         } else {
-            alert("failed");
         }
     }
 }

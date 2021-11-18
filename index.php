@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true)
+    header("location: /courses");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +15,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 </head>
 <body>
-<?php require_once('common/header-login.php'); ?>
-<?php require_once('common/footer.php'); ?>
+<?php
+require_once('common/header-login.php');
+require_once('common/footer.php');
+?>
 </body>
 </html>
