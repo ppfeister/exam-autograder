@@ -16,7 +16,15 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 </head>
 <body>
-    <?php require_once('../common/header-internal.php'); ?>
+    <?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/common/header-internal.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
+
+    $userguid = $_SESSION['guid'];
+    $query = mysqli_query($con, "SELECT courses.`Course GUID`, courses.`Course Code`, courses.`Course Name`, assignments.`Assignment ID`, assignments.`Assignment Name`, assignments.`Date opened`, assignments.`Date closed` FROM `bitlab`.`users` as accounts INNER JOIN `courses`.`course-membership` as membership ON membership.`Member GUID` = accounts.`GUID` INNER JOIN `courses`.`available-courses` as courses ON membership.`Course GUID` = courses.`Course GUID` INNER JOIN `courses`.`assignments` as assignments ON assignments.`Course GUID` = membership.`Course GUID` WHERE accounts.`GUID` = $userguid;");
+    $login_query_result = mysqli_fetch_assoc($query);
+    echo($login_query_result);
+    ?>
     <!--<div class="section-menu"></div>-->
     <div class="section-main">
         <h2>Assigned courses</h2>
