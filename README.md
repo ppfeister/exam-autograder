@@ -14,6 +14,7 @@ Coding examination website with automatic grading of student-submitted code
 | GUID (P) | Username | Password | First name | Last name | Admin Role | Date Updated | Last Seen |
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |smallint(5) ~|varchar(255)|varchar(255)|varchar(255)|varchar(255)|tinyint(1) ^|timestamp|timestamp|
+
 Admin role shall be 0:User, 1:User Admin (add/drop users, add/drop/assign courses)
 
 #### courses.assignments
@@ -30,6 +31,7 @@ Admin role shall be 0:User, 1:User Admin (add/drop users, add/drop/assign course
 | Course GUID | Member GUID | Role |
 |:-----:|:-----:|:-----:|
 |smallint(5) ~|smallint(5) ~|tinyint(1) ^|
+
 Member role shall be 0:Student, 1:TA, or 2:Instructor
 
 Symbols included in the data types...
