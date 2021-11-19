@@ -21,79 +21,45 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
     require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
 
     $userguid = $_SESSION['guid'];
-    $query = mysqli_query($con, "SELECT courses.`Course GUID`, courses.`Course Code`, courses.`Course Name`, assignments.`Assignment ID`, assignments.`Assignment Name`, assignments.`Date opened`, assignments.`Date closed` FROM `bitlab`.`users` as accounts INNER JOIN `courses`.`course-membership` as membership ON membership.`Member GUID` = accounts.`GUID` INNER JOIN `courses`.`available-courses` as courses ON membership.`Course GUID` = courses.`Course GUID` INNER JOIN `courses`.`assignments` as assignments ON assignments.`Course GUID` = membership.`Course GUID` WHERE accounts.`GUID` = $userguid;");
-    $login_query_result = mysqli_fetch_assoc($query);
+    $courses_query = mysqli_query($con, "SELECT courses.`Course GUID`, courses.`Course Code`, courses.`Course Name` FROM `bitlab`.`users` as accounts INNER JOIN `courses`.`course-membership` as membership ON membership.`Member GUID` = accounts.`GUID` INNER JOIN `courses`.`available-courses` as courses ON membership.`Course GUID` = courses.`Course GUID` WHERE accounts.`GUID` = $userguid;");
+    $courses = [];
+    while($course = mysqli_fetch_array($courses_query))
+        $courses[] = $course;
     ?>
+
     <!--<div class="section-menu"></div>-->
     <div class="section-main">
         <h2>Assigned courses</h2>
-        <div class="subsection-level1 first-item">
-            <div class="subsection-level1-info">
-                <span class="subsection-level1-name">CS 490 - Design in Software Engineering</span>
-            </div>
-            <div class="course-assignment-list">
-                <div class="assignment-listing">
-                    <span class="assignment-name">Milestone 1</span>
-                    <span class="assignment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <span class="assignment-duedate">Oct 20, 2021 11:59pm<span class="material-icons-sharp status-icon">task</span></span>
-                </div>
-                <div class="assignment-listing">
-                    <span class="assignment-name">Milestone 1</span>
-                    <span class="assignment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <span class="assignment-duedate status-icon">Oct 20, 2021 11:59pm<span class="material-icons-sharp status-icon">task</span></span>
-                </div>
-                <div class="assignment-listing">
-                    <span class="assignment-name">Milestone 1</span>
-                    <span class="assignment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <span class="assignment-duedate">Oct 20, 2021 11:59pm<span class="material-icons-sharp status-icon">hourglass_bottom</span></span>
-                </div>
-            </div>
-        </div>
-        <div class="subsection-level1">
-            <div class="subsection-level1-info">
-                <span class="subsection-level1-name">CS 490 - Design in Software Engineering</span>
-            </div>
-            <div class="course-assignment-list">
-                <div class="assignment-listing">
-                    <span class="assignment-name">Milestone 1</span>
-                    <span class="assignment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <span class="assignment-duedate">Oct 20, 2021 11:59pm<span class="material-icons-sharp status-icon">task</span></span>
-                </div>
-                <div class="assignment-listing">
-                    <span class="assignment-name">Milestone 1</span>
-                    <span class="assignment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <span class="assignment-duedate status-icon">Oct 20, 2021 11:59pm<span class="material-icons-sharp status-icon">task</span></span>
-                </div>
-                <div class="assignment-listing">
-                    <span class="assignment-name">Milestone 1</span>
-                    <span class="assignment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <span class="assignment-duedate">Oct 20, 2021 11:59pm<span class="material-icons-sharp status-icon">hourglass_bottom</span></span>
-                </div>
-            </div>
-        </div>
-        <div class="subsection-level1">
-            <div class="subsection-level1-info">
-                <span class="subsection-level1-name">CS 490 - Design in Software Engineering</span>
-            </div>
-            <div class="course-assignment-list">
-                <div class="assignment-listing">
-                    <span class="assignment-name">Milestone 1</span>
-                    <span class="assignment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <span class="assignment-duedate">Oct 20, 2021 11:59pm<span class="material-icons-sharp status-icon">task</span></span>
-                </div>
-                <div class="assignment-listing">
-                    <span class="assignment-name">Milestone 1</span>
-                    <span class="assignment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <span class="assignment-duedate status-icon">Oct 20, 2021 11:59pm<span class="material-icons-sharp status-icon">task</span></span>
-                </div>
-                <div class="assignment-listing">
-                    <span class="assignment-name">Milestone 1</span>
-                    <span class="assignment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-                    <span class="assignment-duedate">Oct 20, 2021 11:59pm<span class="material-icons-sharp status-icon">hourglass_bottom</span></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php require_once('../common/footer.php'); ?>
+        <?php
+        if(empty($courses)) {
+            echo("No courses assigned");
+        } else {
+            foreach($courses as $course){
+                $assignments = [];
+                $assignment_query = mysqli_query($con, "SELECT `Assignment ID`, `Assignment name`, `Date opened`, `Date closed` FROM courses.assignments WHERE `Course GUID` = $course[0];");
+                while($assignment = mysqli_fetch_array($assignment_query))
+                    $assignments[] = $assignment;
+                echo <<< EOT
+                    <div class="subsection-level1">
+                        <div class="subsection-level1-info">
+                            <span class="subsection-level1-name">$course[1] - $course[2]</span>
+                        </div>
+                        <div class="course-assignment-list">
+                EOT;
+                foreach($assignments as $assignment)
+                    echo <<< EOT
+                            <div class="assignment-listing">
+                                <span class="assignment-name">$assignment[1]</span>
+                                <!--<span class="assignment-desc"></span>-->
+                                <span class="assignment-duedate">$assignment[3]<span class="material-icons-sharp status-icon">task</span></span>
+                            </div>
+                    EOT;
+                echo <<< EOT
+                        </div>
+                    </div>
+                EOT;
+            }
+        }
+        require_once('../common/footer.php'); ?>
 </body>
 </html>
