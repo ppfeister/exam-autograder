@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
-    header("location: /");
+    header("location: /index.php");
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,6 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
     $userguid = $_SESSION['guid'];
     $query = mysqli_query($con, "SELECT courses.`Course GUID`, courses.`Course Code`, courses.`Course Name`, assignments.`Assignment ID`, assignments.`Assignment Name`, assignments.`Date opened`, assignments.`Date closed` FROM `bitlab`.`users` as accounts INNER JOIN `courses`.`course-membership` as membership ON membership.`Member GUID` = accounts.`GUID` INNER JOIN `courses`.`available-courses` as courses ON membership.`Course GUID` = courses.`Course GUID` INNER JOIN `courses`.`assignments` as assignments ON assignments.`Course GUID` = membership.`Course GUID` WHERE accounts.`GUID` = $userguid;");
     $login_query_result = mysqli_fetch_assoc($query);
-    echo($login_query_result);
     ?>
     <!--<div class="section-menu"></div>-->
     <div class="section-main">
