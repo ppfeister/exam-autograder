@@ -14,7 +14,7 @@ if(isset($_POST['submit'])) {
             $_SESSION['last_name'] = $login_query_result['Last name'];
             $_SESSION['access_level'] = $login_query_result['Admin Role'];
             $_SESSION['logged_in'] = true;
-            header("location:/courses");
+            header("location:/home");
             die;
         } else {
         }
