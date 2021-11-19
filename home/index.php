@@ -21,13 +21,12 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
     require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
 
     $userguid = $_SESSION['guid'];
-    $courses_query = mysqli_query($con, "SELECT courses.`Course GUID`, courses.`Course Code`, courses.`Course Name` FROM `bitlab`.`users` as accounts INNER JOIN `courses`.`course-membership` as membership ON membership.`Member GUID` = accounts.`GUID` INNER JOIN `courses`.`available-courses` as courses ON membership.`Course GUID` = courses.`Course GUID` WHERE accounts.`GUID` = $userguid;");
+    $courses_query = mysqli_query($con, "SELECT courses.`Course GUID`, courses.`Course Code`, courses.`Course Name`, membership.`Role` FROM `bitlab`.`users` as accounts INNER JOIN `courses`.`course-membership` as membership ON membership.`Member GUID` = accounts.`GUID` INNER JOIN `courses`.`available-courses` as courses ON membership.`Course GUID` = courses.`Course GUID` WHERE accounts.`GUID` = $userguid;");
     $courses = [];
     while($course = mysqli_fetch_array($courses_query))
         $courses[] = $course;
     ?>
 
-    <!--<div class="section-menu"></div>-->
     <div class="section-main">
         <h2>Assigned courses</h2>
         <?php
@@ -50,7 +49,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
                     echo <<< EOT
                             <div class="assignment-listing">
                                 <span class="assignment-name">$assignment[1]</span>
-                                <!--<span class="assignment-desc"></span>-->
+                                <span class="assignment-desc"></span>
                                 <span class="assignment-duedate">$assignment[3]<span class="material-icons-sharp status-icon">task</span></span>
                             </div>
                     EOT;
