@@ -1,5 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300&family=IBM+Plex+Mono:wght@300&family=Roboto:wght@300;400&display=swap');
+
+html {
+  font-family: 'Roboto', serif;
+  font-weight: 300;
+}
+
+#login-toolbar input,
+#login-toolbar button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
 
 h1 {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+h2,
+.subsection-level1 .subsection-level1-info {
+  font-family: 'Bitter', serif;
 }
