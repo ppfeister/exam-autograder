@@ -33,6 +33,7 @@ header {
   padding: 1vh 1rem 1vh 1rem;
   background-color: var(--lightmode-primary-3);
   box-shadow: 0 1px 5px 0 var(--lightmode-shadow-1);
+  grid-area: header;
 }
 
 header div {
@@ -42,8 +43,16 @@ header div {
 .page-wrapper {
   min-height: 100%;
   display: grid;
+  grid-template-areas:
+    "header header"
+    "left main"
+    "footer footer";
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
+  grid-template-columns: 10em auto;
+}
+
+.content-wrapper {
+  grid-area: main;
 }
 
 h1 a:link,
@@ -95,4 +104,12 @@ button:hover {
 
 .subsection-level1 .subsection-level1-info {
   margin-bottom: 0.2rem;
+}
+
+footer {
+  padding: 1vh 1rem 1vh 1rem;
+  font-size: 0.7em;
+  background-color: var(--lightmode-primary-2);
+  box-shadow: 5 1px 0px 0 var(--lightmode-shadow-1);
+  grid-area: footer;
 }
