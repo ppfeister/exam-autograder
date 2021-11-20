@@ -18,6 +18,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
 <body>
     <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . "/common/header-internal.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/common/sidebar-left.php");
     require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
 
     $userguid = $_SESSION['guid'];
@@ -40,9 +41,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
                     $assignments[] = $assignment;
                 echo <<< EOT
                     <div class="subsection-level1">
-                        <div class="subsection-level1-info">
-                            <span class="subsection-level1-name">$course[1] - $course[2]</span>
-                        </div>
+                        <h3>$course[1] - $course[2]</h3>
                         <div class="course-assignment-list">
                 EOT;
                 foreach($assignments as $assignment)
@@ -60,5 +59,6 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
             }
         }
         require_once('../common/footer.php'); ?>
+    </div>
 </body>
 </html>

@@ -1,0 +1,5 @@
+#sidebar {
+  background-color: #ffa233;
+  height: calc(100vh - 5rem);
+  position: fixed;
+}
