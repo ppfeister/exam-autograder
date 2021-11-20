@@ -43,5 +43,11 @@ Some changes are allowed without updating the code, such as changing a smallint 
 
 ---
 
+#### The following projects were used under the MIT license.
+- Prism - [PrismJS/prism](https://github.com/PrismJS/prism/)
+
 #### The following projects were used under the Apache 2.0 license.
 - Material Design Icons - [google/material-design-icons](https://github.com/google/material-design-icons)
+
+#### The following projects were used under the BSD license.
+- Ace (Ajax.org Cloud9 Editor) - [ajaxorg/ace](https://github.com/ajaxorg/ace-builds/blob/master/LICENSE)

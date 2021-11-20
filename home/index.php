@@ -18,6 +18,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
 <body>
     <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . "/common/header-internal.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/common/sidebar-left.php");
     require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
 
     $userguid = $_SESSION['guid'];
@@ -26,39 +27,42 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
     while($course = mysqli_fetch_array($courses_query))
         $courses[] = $course;
     ?>
-
-    <div class="section-main">
-        <h2>Assigned courses</h2>
-        <?php
-        if(empty($courses)) {
-            echo("No courses assigned");
-        } else {
-            foreach($courses as $course){
-                $assignments = [];
-                $assignment_query = mysqli_query($con, "SELECT `Assignment ID`, `Assignment name`, `Date opened`, `Date closed` FROM courses.assignments WHERE `Course GUID` = $course[0];");
-                while($assignment = mysqli_fetch_array($assignment_query))
-                    $assignments[] = $assignment;
-                echo <<< EOT
-                    <div class="subsection-level1">
-                        <div class="subsection-level1-info">
-                            <span class="subsection-level1-name">$course[1] - $course[2]</span>
-                        </div>
-                        <div class="course-assignment-list">
-                EOT;
-                foreach($assignments as $assignment)
+    <div id="content-wrapper">
+        <div class="section-main">
+            <h2>Assigned courses</h2>
+            <?php
+            if(empty($courses)) {
+                echo("No courses assigned");
+            } else {
+                foreach($courses as $course){
+                    $assignments = [];
+                    $assignment_query = mysqli_query($con, "SELECT `Assignment ID`, `Assignment name`, `Date opened`, `Date closed` FROM courses.assignments WHERE `Course GUID` = $course[0];");
+                    while($assignment = mysqli_fetch_array($assignment_query))
+                        $assignments[] = $assignment;
                     echo <<< EOT
-                            <div class="assignment-listing">
-                                <span class="assignment-name">$assignment[1]</span>
-                                <span class="assignment-desc"></span>
-                                <span class="assignment-duedate">$assignment[3]<span class="material-icons-sharp status-icon">task</span></span>
-                            </div>
+                        <div class="subsection-level1">
+                            <h3>$course[1] - $course[2]</h3>
+                            <div class="course-assignment-list">
                     EOT;
-                echo <<< EOT
+                    foreach($assignments as $assignment)
+                        echo <<< EOT
+                                <a href="/assignments?aid=$assignment[0]">
+                                    <div class="assignment-listing">
+                                        <span class="assignment-name">$assignment[1]</span>
+                                        <span class="assignment-desc"></span>
+                                        <span class="assignment-duedate">$assignment[3]<span class="material-icons-sharp status-icon">task</span></span>
+                                    </div>
+                                </a>
+                        EOT;
+                    echo <<< EOT
+                            </div>
                         </div>
-                    </div>
-                EOT;
+                    EOT;
+                }
             }
-        }
-        require_once('../common/footer.php'); ?>
+            ?>
+        </div>
+        <?php require_once('../common/footer.php'); ?>
+    </div>
 </body>
 </html>

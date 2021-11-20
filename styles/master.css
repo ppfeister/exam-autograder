@@ -1,6 +1,7 @@
 @import "colors.css";
 @import "fonts.css";
 @import "forms.css";
+@import "sidebars.css";
 
 /* reset browser default style */
 * {
@@ -17,16 +18,22 @@
 :root {
   --footer-height: 0;
   --footer-height-negative: 0;
+
+  height: 100%;
 }
 
 body {
   background-color: var(--lightmode-primary-1);
+  font-family: var(--body-font-face);
+  font-weight: var(--body-font-weight);
+  height: 100%;
 }
 
 header {
   padding: 1vh 1rem 1vh 1rem;
   background-color: var(--lightmode-primary-3);
   box-shadow: 0 1px 5px 0 var(--lightmode-shadow-1);
+  grid-area: header;
 }
 
 header div {
@@ -35,7 +42,19 @@ header div {
 
 .page-wrapper {
   min-height: 100%;
-  margin-bottom: var(--footer-height-negative);
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "left main"
+    "footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 0 minmax(30em, auto);
+
+  /* grid-template-columns: minmax(8em, 10em) minmax(30em, auto); */
+}
+
+.content-wrapper {
+  grid-area: main;
 }
 
 h1 a:link,
@@ -45,6 +64,18 @@ h1 a:active {
   font-size: 1.5em;
   color: var(--lightmode-font-1);
   text-decoration: none;
+}
+
+.course-assignment-list a:link,
+.course-assignment-list a:visited,
+.course-assignment-list a:hover,
+.course-assignment-list a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+h3 {
+  font-size: 1.1em;
 }
 
 button {
@@ -57,7 +88,7 @@ button:hover {
 }
 
 .section-main {
-  margin: 1rem 1rem;
+  margin: 1rem 1rem auto;
   padding: 1rem 1rem 1rem 1rem;
   border-radius: 0.2rem;
   background-color: var(--lightmode-complement-1);
@@ -85,6 +116,26 @@ button:hover {
   margin-bottom: 0.2rem;
 }
 
-.subsection-level1 .subsection-level1-name {
-  font-size: 1.2em;
+footer {
+  padding: 0.7vh 0.7rem 0.7vh 0.7rem;
+  font-size: 0.7em;
+  background-color: var(--lightmode-primary-2);
+  grid-area: footer;
+  text-align: center;
+}
+
+footer a:link,
+footer a:visited {
+  color: var(--lightmode-footer-font);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--lightmode-footer-font);
+  text-decoration: underline;
+}
+
+footer a:active {
+  color: var(--lightmode-footer-font);
+  text-decoration: none;
 }

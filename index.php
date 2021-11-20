@@ -17,7 +17,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true)
 <body>
 <?php
 require_once('common/header-login.php');
-require_once('common/footer.php');
+//require_once('common/footer.php'); extending past end of page
 ?>
 </body>
 </html>
