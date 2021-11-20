@@ -1,3 +1,4 @@
+<div class="page-wrapper"> <!-- closed in footer -->
 <header>
     <div><h1><a href="">&lt;bitlab/&gt;</a></h1></div>
     <div id="login-toolbar">
@@ -6,4 +7,3 @@
         </form>
     </div>
 </header>
-<div class="page-wrapper"> <!-- closed in footer -->

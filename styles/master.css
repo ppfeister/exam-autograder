@@ -18,12 +18,15 @@
 :root {
   --footer-height: 0;
   --footer-height-negative: 0;
+
+  height: 100%;
 }
 
 body {
   background-color: var(--lightmode-primary-1);
   font-family: var(--body-font-face);
   font-weight: var(--body-font-weight);
+  height: 100%;
 }
 
 header {
@@ -38,7 +41,9 @@ header div {
 
 .page-wrapper {
   min-height: 100%;
-  margin-bottom: var(--footer-height-negative);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
 }
 
 h1 a:link,
@@ -64,7 +69,7 @@ button:hover {
 }
 
 .section-main {
-  margin: 1rem 1rem;
+  margin: 1rem 1rem auto;
   padding: 1rem 1rem 1rem 1rem;
   border-radius: 0.2rem;
   background-color: var(--lightmode-complement-1);
