@@ -14,7 +14,7 @@ if(isset($_POST['submit'])) {
             $_SESSION['last_name'] = $login_query_result['Last name'];
             $_SESSION['access_level'] = $login_query_result['Admin Role'];
             $_SESSION['logged_in'] = true;
-            header("location:/courses");
+            header("location:/home");
             die;
         } else {
         }
@@ -23,7 +23,7 @@ if(isset($_POST['submit'])) {
 ?>
 
 <header>
-    <div><h1><a href="">bitlab</a></h1></div>
+    <div><h1><a href="">&lt;bitlab/&gt;</a></h1></div>
     <div id="login-toolbar">
         <form method="post">
             <input type="text" id="txt_uname" name="txt_uname" placeholder="Username">
