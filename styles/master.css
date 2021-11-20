@@ -48,7 +48,7 @@ header div {
     "left main"
     "footer footer";
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 10em auto;
+  grid-template-columns: minmax(8em, 10em) minmax(30em, auto);
 }
 
 .content-wrapper {
