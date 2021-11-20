@@ -27,10 +27,23 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
         <h2>CS 490 - Hello World</h2>
         <div class="subsection-level1">
             <p class="assignment-desc">Using Python, print "Hello World" to the console.</p>
-            <code>test</code>
+            <div id="editor" style="min-height: 15em;">function foo(items) {
+                var x = "All this is syntax highlighted";
+                return x;
+                }</div>
         </div>
     </div>
     <?php require_once('../common/footer.php'); ?>
 </div>
+
+<!----- EDITOR ----->
+<script src="/scripts/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/eclipse");
+    editor.session.setMode("ace/mode/python");
+</script>
+<!----- EDITOR ----->
+
 </body>
 </html>
