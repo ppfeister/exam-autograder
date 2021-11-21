@@ -1,6 +1,41 @@
-@import "/styles/prism.css";
-
 .assignment-desc {
   font-size: 0.9em;
   padding-bottom: 1.5rem;
+}
+
+.question-options {
+  display: grid;
+  grid-template-areas: "prev-q left-fill stop run right-fill next-q";
+  grid-template-columns: auto 1fr auto auto 1fr auto;
+  background-color: var(--lightmode-primary-1);
+}
+
+.question-options a .material-icons-sharp {
+  font-size: 1.2em;
+  vertical-align: top;
+}
+
+.question-options a {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9em;
+}
+
+.question-options a:link,
+.question-options a:visited {
+  width: auto;
+  text-decoration: none;
+  color: black;
+}
+
+.question-options a:hover {
+  width: auto;
+  text-decoration: none;
+  color: black;
+  background-color: var(--lightmode-primary-3);
+}
+
+.question-options a:visited {
+  width: auto;
+  text-decoration: none;
+  color: black;
 }

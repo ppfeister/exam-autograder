@@ -14,11 +14,7 @@
   background: transparent;
 }
 
-/* vars for this doc only */
 :root {
-  --footer-height: 0;
-  --footer-height-negative: 0;
-
   height: 100%;
 }
 

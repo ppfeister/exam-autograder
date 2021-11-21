@@ -49,7 +49,6 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
                                 <a href="/assignments?aid=$assignment[0]">
                                     <div class="assignment-listing">
                                         <span class="assignment-name">$assignment[1]</span>
-                                        <span class="assignment-desc"></span>
                                         <span class="assignment-duedate">$assignment[3]<span class="material-icons-sharp status-icon">task</span></span>
                                     </div>
                                 </a>
