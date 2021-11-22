@@ -5,8 +5,8 @@
 
 .question-options {
   display: grid;
-  grid-template-areas: "prev-q left-fill stop run right-fill next-q";
-  grid-template-columns: auto 1fr auto auto 1fr auto;
+  grid-template-areas: "left-fill stop run next-q-submit";
+  grid-template-columns: 1fr auto auto auto;
   background-color: var(--lightmode-primary-1);
 }
 

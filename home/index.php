@@ -34,7 +34,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
             if(empty($courses)) {
                 echo("No courses assigned");
             } else {
-                foreach($courses as $course){
+                foreach($courses as $course) {
                     $assignments = [];
                     $assignment_query = mysqli_query($con, "SELECT `Assignment ID`, `Assignment name`, `Date opened`, `Date closed` FROM courses.assignments WHERE `Course GUID` = $course[0];");
                     while($assignment = mysqli_fetch_array($assignment_query))
@@ -46,7 +46,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
                     EOT;
                     foreach($assignments as $assignment)
                         echo <<< EOT
-                                <a href="/assignments?aid=$assignment[0]">
+                                <a href="/assignments/?aid=$assignment[0]">
                                     <div class="assignment-listing">
                                         <span class="assignment-name">$assignment[1]</span>
                                         <span class="assignment-duedate">$assignment[3]<span class="material-icons-sharp status-icon">task</span></span>

@@ -118,6 +118,7 @@ footer {
   background-color: var(--lightmode-primary-2);
   grid-area: footer;
   text-align: center;
+  margin-top: 1rem;
 }
 
 footer a:link,
