@@ -4,8 +4,7 @@ Coding examination website with automatic grading of student-submitted code
 ### Dependencies
 - PHP 7.x/8.x Support (with mysqli module enabled)
   - Mostly built and tested on PHP 7.4, but 8.x should work as well.
-- Database (for user data, submissions, etc)
-- SSL/TLS cert not required, but highly recommended.
+- Preconfigured Databases (for user data, submissions, etc)
 
 ---
 ### Expected Database Structure
@@ -18,9 +17,9 @@ Coding examination website with automatic grading of student-submitted code
 Admin role shall be 0:User, 1:User Admin (add/drop users, add/drop/assign courses)
 
 #### courses.assignments
-| Assignment ID (P)| Course GUID | Assignment name | Date opened | Date closed |
-|:-----:|:-----:|:-----:|:-----:|:-----:|
-|mediumint(7) ~|smallint(5) ~|varchar(255)|timestamp|timestamp|
+| Assignment ID (P)| Course GUID | Assignment name | Allow resubmit | Date opened | Date closed |
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|mediumint(7) ~|smallint(5) ~|varchar(255)| bool | timestamp|timestamp|
 
 #### courses.available-courses
 | Course GUID (P) | Course Code | Course Name |
@@ -33,6 +32,21 @@ Admin role shall be 0:User, 1:User Admin (add/drop users, add/drop/assign course
 |smallint(5) ~|smallint(5) ~|tinyint(1) ^|
 
 Member role shall be 0:Student, 1:TA, or 2:Instructor
+
+#### courses.question-sets
+| Assignment ID | Question ID | Points |
+|:-----:|:-----:|:-----:|
+| mediumint(7) ~ | int(9) ~ | smallint(5) |
+
+#### courses.saved-questions
+| Question ID | Question Owner | Banked | Question Name | Question Prompt | Question Skeleton | Code Language | Question Tests | Question Validation |
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+| int(9) ~ | smallint(5) ~ | bool | varchar(255) | varchar(255) | varchar(10000) | varchar(255) | varchar(255) | varchar(255) |
+
+#### courses.submitted-answers
+| Assignment ID | Question ID | Member GUID | Answer | Score |
+|:-----:|:-----:|:-----:|:-----:|:-----:|
+| mediumint(7) ~ | int(9) ~ | smallint(5) ~ | longtext | smallint |
 
 Symbols included in the data types...
 **(P)** Primary key,

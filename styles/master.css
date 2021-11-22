@@ -14,11 +14,7 @@
   background: transparent;
 }
 
-/* vars for this doc only */
 :root {
-  --footer-height: 0;
-  --footer-height-negative: 0;
-
   height: 100%;
 }
 
@@ -122,6 +118,7 @@ footer {
   background-color: var(--lightmode-primary-2);
   grid-area: footer;
   text-align: center;
+  margin-top: 1rem;
 }
 
 footer a:link,
