@@ -3,6 +3,7 @@
 }
 
 #login-toolbar form {
+  padding-top: 0.3em;
   vertical-align: middle;
 }
 
@@ -14,10 +15,14 @@
   border-width: 0 0 1px 0;
   border-style: solid;
   border-color: var(--lightmode-primary-2);
+  font-family: var(--body-font-face);
+  font-weight: var(--login-toolbar-font-weight);
 }
 
 #login-toolbar button {
   color: var(--lightmode-font-1);
   display: inline-flex;
   vertical-align: inherit;
+  font-family: var(--body-font-face);
+  font-weight: var(--login-toolbar-font-weight);
 }

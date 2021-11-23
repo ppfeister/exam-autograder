@@ -1,0 +1,61 @@
+h3 {
+  display: inline-block;
+}
+
+.instructor-toolbar {
+  float: right;
+  background-color: var(--lightmode-primary-2);
+  padding: 0 1rem 0 0.5rem;
+  margin: 0 -1rem 0 0;
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
+}
+
+.instructor-toolbar a {
+  display: inline-block;
+  font-size: 0.9em;
+  padding: 0.2rem 0.5rem;
+  height: 100%;
+}
+
+.instructor-toolbar a:link,
+.instructor-toolbar a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.instructor-toolbar a:hover,
+.instructor-toolbar a:active {
+  text-decoration: none;
+  color: black;
+  background-color: var(--lightmode-primary-3);
+}
+
+.assignment-listing {
+  margin: 0 -1rem;
+  padding: 0.2rem 1rem 0;
+}
+
+.assignment-listing:hover {
+  background-color: var(--lightmode-primary-2);
+  cursor: pointer;
+}
+
+.assignment-listing .assignment-desc {
+  margin-left: 3rem;
+  overflow-x: scroll;
+}
+
+.assignment-listing .assignment-duedate {
+  float: right;
+}
+
+.assignment-listing .status-icon {
+  vertical-align: bottom;
+  margin-left: 1em;
+}
+
+.assignment-listing .material-icons-sharp {
+  font-size: 100%;
+  vertical-align: top;
+}
