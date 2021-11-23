@@ -1,7 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false || !isset($_GET['aid']))
+    header("location: /index.php");
+
 require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
 
-session_start();
 $data = json_decode(file_get_contents("php://input"), true);
 
 $piston_query = mysqli_fetch_array(mysqli_query($con, "SELECT languages.`Piston name`, languages.`Piston version`, languages.`File extension` from `courses`.`languages-avail` as languages INNER JOIN `courses`.`saved-questions` as questions WHERE questions.`Question ID` = 1 AND questions.`Code Language` = languages.`Human-readable`;"));
