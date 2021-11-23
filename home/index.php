@@ -39,11 +39,11 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
                     $assignment_query = mysqli_query($con, "SELECT `Assignment ID`, `Assignment name`, `Date opened`, `Date closed` FROM courses.assignments WHERE `Course GUID` = $course[0];");
                     while($assignment = mysqli_fetch_array($assignment_query))
                         $assignments[] = $assignment;
-                    echo <<< EOT
-                        <div class="subsection-level1">
-                            <h3>$course[1] - $course[2]</h3>
-                            <div class="course-assignment-list">
-                    EOT;
+                    echo "<div class=\"subsection-level1\">
+                            <h3>$course[1] - $course[2]</h3>";
+                    if($course[3] == 2)
+                        require_once($_SERVER['DOCUMENT_ROOT'] . "/assignments/instructor-toolbar.php");
+                    echo "<div class=\"course-assignment-list\">";
                     foreach($assignments as $assignment)
                         echo <<< EOT
                                 <a href="/assignments/?aid=$assignment[0]">
