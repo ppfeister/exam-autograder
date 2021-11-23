@@ -7,7 +7,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$piston_query = mysqli_fetch_array(mysqli_query($con, "SELECT languages.`Piston name`, languages.`Piston version`, languages.`File extension` from `courses`.`languages-avail` as languages INNER JOIN `courses`.`saved-questions` as questions WHERE questions.`Question ID` = 1 AND questions.`Code Language` = languages.`Human-readable`;"));
+$expected_result = mysqli_fetch_array(mysqli_query($con, "SELECT `Question Tests`, `Question Validation` FROM `courses`.`saved-questions` WHERE `Question ID` = $data[1];"));
+$piston_query = mysqli_fetch_array(mysqli_query($con, "SELECT languages.`Piston name`, languages.`Piston version`, languages.`File extension` from `courses`.`languages-avail` as languages INNER JOIN `courses`.`saved-questions` as questions WHERE questions.`Question ID` = $data[1] AND questions.`Code Language` = languages.`Human-readable`;"));
 $piston_lang = strval($piston_query[0]);
 $piston_version = strval($piston_query[1]);
 $piston_ext = strval($piston_query[2]);
@@ -28,7 +29,8 @@ $user_answer = <<< ANSWER
             "name": "answer$piston_ext",
             "content": $data[2]
         }
-    ]
+    ],
+    "args": "$expected_result[0]"
 }
 ANSWER;
 
@@ -43,4 +45,9 @@ curl_setopt($curl, CURLOPT_POSTFIELDS, $user_answer);
 $resp = curl_exec($curl);
 curl_close($curl);
 
-error_log("piston result: " . $resp);
+$decoded_resp = json_decode($resp, true);
+$decoded_resp['run']['output'] = substr($decoded_resp['run']['output'], 0, -1); //removes trailing newline added by Piston
+similar_text($expected_result[1], $decoded_resp['run']['output'], $accuracy_score);
+
+error_log($decoded_resp['run']['stdout'], 0);
+error_log($accuracy_score, 0);
