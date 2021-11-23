@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false || !isset($_GET['aid']))
+if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
     header("location: /index.php");
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
