@@ -55,6 +55,12 @@ $decoded_resp = json_decode($resp, true);
 $decoded_resp['run']['output'] = substr($decoded_resp['run']['output'], 0, -1); //removes trailing newline added by Piston
 similar_text($expected_result[1], $decoded_resp['run']['output'], $accuracy);
 $calculated_points = number_format($possible_points[0] * $accuracy / 100, 2, '.', '');
-mysqli_query($con, "INSERT INTO `courses`.`submitted-answers` (`Assignment ID`, `Question ID`, `Member GUID`, `Answer`, `Score`) VALUES $data[0], $data[1], $userguid, $submitted_answer, $calculated_points;");
-error_log($decoded_resp['run']['output'], 0);
-error_log($calculated_points, 0);
+
+$submission_requirements = mysqli_fetch_array(mysqli_query($con, "SELECT `Date opened`, `Date closed`, `Allow resubmit` FROM `courses`.`assignments` WHERE `Assignment ID` = $data[0];"));
+$already_submitted_ct = mysqli_num_rows(mysqli_query($con, "SELECT * FROM `courses`.`submitted-answers` WHERE `Assignment ID` = $data[0] AND `Question ID` = $data[1] AND `Member GUID` = $userguid;"));
+if(!$already_submitted_ct || $submission_requirements[2]){
+    mysqli_query($con, "DELETE FROM `courses`.`submitted-answers` WHERE `Assignment ID` = $data[0] AND `Question ID` = $data[1] AND `Member GUID` = $userguid;");
+    mysqli_query($con, "INSERT INTO `courses`.`submitted-answers` (`Assignment ID`, `Question ID`, `Member GUID`, `Answer`, `Score`) VALUES ($data[0], $data[1], $userguid, $submitted_answer, $calculated_points);");
+} else {
+    error_log("User $userguid tried to resubmit an answer without having permission.", 0);
+}
