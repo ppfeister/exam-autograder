@@ -1,0 +1,38 @@
+form {
+  display: grid;
+  grid-template-areas:
+    "name-label name-field right-fill"
+    "resub-label resub-field right-fill"
+    "questions-label questions-field right-fill";
+  grid-template-columns: auto auto 1fr;
+
+  /* grid-template-rows: auto 1fr; */
+}
+
+form label {
+  margin-right: 1rem;
+}
+
+form input {
+  margin-right: auto;
+}
+
+.question-selection {
+  height: 10rem;
+  margin-top: 1rem;
+}
+
+.question-selection input {
+  display: block;
+}
+
+form label:not(:first-of-type),
+form input:not(:first-of-type) {
+  margin-top: 0.5rem;
+}
+
+form input[type=text] {
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: var(--lightmode-primary-1);
+}
