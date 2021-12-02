@@ -2,6 +2,7 @@
 @import "fonts.css";
 @import "forms.css";
 @import "sidebars.css";
+@import "split.css";
 
 /* reset browser default style */
 * {
