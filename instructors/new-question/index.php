@@ -34,10 +34,8 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
             <div class="subsection-level1">
                 <h3>Setup New Question</h3>
                 <form method=post>
-                    <label for=question-prompt>Question Prompt</label> <br>
-                    <textarea id="prompt" name="question-prompt" placeholder="(please enter your question prompt here)" rows="4" cols="50">
-                
-                    </textarea>
+                    <label for=question-prompt>Question Prompt:</label>
+                    <input class="textbox-small" id="question-prompt" type="text">
                     <br> 
                     <label for=lang>Language for Code: </label><select name="lang" id="pro-lang">
                         <option value="lang1">Assembly</option>
@@ -45,21 +43,17 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
                     </select>
                     <br>
                     <label for=question-skeleton>Question Skeleton Code</label> <br>
-                    <textarea id="skeleton" name="question-skeleton" placeholder="Question Skeleton" rows="4" cols="50">
-                
-                    </textarea>
+                    <textarea class=textarea id="skeleton" name="question-skeleton"> </textarea>
                     <br>
                 </form>            
             </div>
             <div class="subsection-level1">
                 <form method=post>
                     <label for=question-arguments>Program Arguments:</label>
-                    <input type="text" name="question-arguments" placeholder="(please enter your arguments here)" size="45">
+                    <input class="textbox-small" id="question-arguments" type="text">
 
                     <br> <label for=question-correctoutput>Correct Output</label> <br>
-                    <textarea id="output" name="question-output" placeholder="Output" rows="4" cols="50">
-                
-                    </textarea>
+                    <textarea class=textarea id="output" name="question-output"> </textarea>
                 </form>
             </div>
         </div>
@@ -68,11 +62,9 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
     <div class="split right">
         <div class="section-main">
             <h3>Question Bank</h3>
-            <?php //PHP CODE FOR POPULATING QUESTION BANK GOES HERE
-            
-            
-            ?>
+            <div class=sidebar-left>
 
+            </div>
         </div>
     </div>
 	

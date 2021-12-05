@@ -3,6 +3,7 @@
 @import "forms.css";
 @import "sidebars.css";
 @import "split.css";
+@import "textbox.css";
 
 /* reset browser default style */
 * {
@@ -27,7 +28,7 @@ body {
 }
 
 header {
-  padding: 1vh 1rem 1vh 1rem;
+  padding: 1vh 10rem 1vh 1rem;
   background-color: var(--lightmode-primary-3);
   box-shadow: 0 1px 5px 0 var(--lightmode-shadow-1);
   grid-area: header;
