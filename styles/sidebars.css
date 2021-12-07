@@ -9,3 +9,17 @@
 
   /* padding: 1rem 1rem 1rem 1rem; */
 }
+
+#sidebar-right {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-top-left-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
+  background-color: var(--lightmode-complement-1);
+  box-shadow: 0 1px 5px 0 var(--lightmode-shadow-1);
+}
+
+#sidebar-right > h2 {
+  margin: 0;
+  padding-top: 1rem;
+}
