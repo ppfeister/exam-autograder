@@ -11,9 +11,10 @@ if(isset($_POST['submit'])) {
     $question_prompt = $_POST['question-prompt'];
     $skeleton = $_POST['question-skeleton'];
     $correct_output = $_POST['question-output'];
-    $question_lang = $_POST[''];
+    $question_lang = $_POST['lang'];
+    $question_args = $_POST['question-arguments'];
 
-    mysqli_query($con, "INSERT INTO `courses`.`saved-questions` (`Question Owner`, `Question Name`, `Question Prompt`, `Question Skeleton`, `Code Language`, `Question Tests`, `Question Validation`) VALUES ($userguid, $question_name,$question_prompt,$skeleton,'Python','',$correct_output);");
+    mysqli_query($con, "INSERT INTO `courses`.`saved-questions` (`Question Owner`, `Banked`, `Question Name`, `Question Prompt`, `Question Skeleton`, `Code Language`, `Question Tests`, `Question Validation`) VALUES ('$userguid', true, '$question_name','$question_prompt','$skeleton','$question_lang','$question_args','$correct_output');") or die(mysqli_error($con));
 }
 ?>
 
