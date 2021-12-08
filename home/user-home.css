@@ -46,8 +46,13 @@ h3 {
   overflow-x: scroll;
 }
 
-.assignment-listing .assignment-duedate {
+.assignment-listing .assignment-data {
   float: right;
+}
+
+.assignment-score {
+  font-size: 0.9em;
+  vertical-align: top;
 }
 
 .assignment-listing .status-icon {

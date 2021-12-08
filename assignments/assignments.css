@@ -5,8 +5,8 @@
 
 .question-options {
   display: grid;
-  grid-template-areas: "left-fill stop run next-q-submit";
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-areas: "left-fill score stop run next-q-submit";
+  grid-template-columns: 1fr auto auto auto auto;
   background-color: var(--lightmode-primary-1);
 }
 
@@ -38,4 +38,12 @@
   width: auto;
   text-decoration: none;
   color: black;
+}
+
+.question-score {
+  grid-area: score;
+  font-size: 0.9em;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 2rem;
 }

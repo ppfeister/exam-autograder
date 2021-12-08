@@ -1,0 +1,38 @@
+.page-wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "left main right"
+    "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 0 auto minmax(10em, 13em);
+
+  /* grid-template-columns: minmax(8em, 10em) minmax(30em, auto); */
+}
+
+#sidebar-right {
+  grid-area: right;
+}
+
+.qitem {
+  padding: 0.5rem;
+}
+
+.qitem:not(:first-of-type) {
+  border-top-style: dotted;
+  border-width: 1px;
+  border-color: var(--lightmode-primary-2);
+}
+
+.qitem:hover {
+  background-color: var(--lightmode-primary-2);
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  display: block;
+  margin-bottom: 1rem;
+}
