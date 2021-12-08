@@ -83,7 +83,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
             }
             ?>
         </div>
-        <?php require_once('../common/footer.php'); ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/common/footer.php"); ?>
     </div>
 </body>
 </html>
