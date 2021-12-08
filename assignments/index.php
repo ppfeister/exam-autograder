@@ -87,7 +87,7 @@ EOT;
         }
         ?>
     </div>
-    <?php require_once('../common/footer.php'); ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/common/footer.php"); ?>
 </div>
 
 <!----- EDITOR ----->
