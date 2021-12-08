@@ -41,10 +41,13 @@ while($question = mysqli_fetch_array($assignment_query))
             echo("There was a problem.");
         } else {
             foreach ($questions as $question) {
+                $current_score = 0;
                 $allow_resub = true;
                 $previous_answer_query = mysqli_query($con, "SELECT `Answer`, `Score` FROM `courses`.`submitted-answers` WHERE `Assignment ID` = $question[0] AND `Question ID` = $question[3] AND `Member GUID` = $userguid;");
                 if(mysqli_num_rows($previous_answer_query)) {
-                    $question[7] = mysqli_fetch_array($previous_answer_query)[0];
+                    $prev_question_data =  mysqli_fetch_array($previous_answer_query);
+                    $question[7] = $prev_question_data[0];
+                    $current_score = $prev_question_data[1];
                     if(!$assignment_info[2])
                         $allow_resub = false;
                 }
@@ -55,6 +58,7 @@ while($question = mysqli_fetch_array($assignment_query))
                 <span style="grid-area: left-fill;"></span>
                 <!--<span style="grid-area: right-fill;"></span>-->
                 <!--<a href="#" style="grid-area: reset;" title="Revert to skeleton"><span class="material-icons-sharp">restart_alt</span></a>-->
+                <span class="question-score">$current_score / $question[4] points</span>
                 <a href="#" style="grid-area: stop;" title="Abort"><span class="material-icons-sharp">stop</span></a>
                 <a href="#" style="grid-area: run;" title="Run"><span class="material-icons-sharp">play_arrow</span></a>
                 <!--<a href="/assignments?aid=000001,q=1" style="grid-area: next-q-submit;" title="Next question">Next <span class="material-icons-sharp">arrow_forward</span></a>-->
@@ -83,7 +87,7 @@ EOT;
         }
         ?>
     </div>
-    <?php require_once('../common/footer.php'); ?>
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/common/footer.php"); ?>
 </div>
 
 <!----- EDITOR ----->
