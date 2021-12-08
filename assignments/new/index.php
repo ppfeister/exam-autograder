@@ -59,7 +59,7 @@ while($question = mysqli_fetch_array($questions_query))
                     <?php
                     foreach ($questions as $question){
                         echo <<< EOT
-                        <input type="checkbox" name="questions[]" value="$question[0]">
+                        <input type="checkbox" id="qid-$question[0]" name="questions[]" value="$question[0]">
                         <label>$question[1]</label>
                         EOT;
                     }
