@@ -55,11 +55,12 @@ while($question = mysqli_fetch_array($questions_query))
                 <label for="allow-resubmit" style="grid-area: resub-label;">Allow resubmissions?</label>
                 <input type="checkbox" id="allow-resubmit" checked style="grid-area: resub-field;" name="allow-resubmit">
                 <label for="question-selection" style="grid-area: questions-label;">Questions:</label>
+                <input type="checkbox" id="qid-1" name="questions[]">
                 <div id="question-selection" style="grid-area: questions-field;">
                     <?php
                     foreach ($questions as $question){
                         echo <<< EOT
-                        <input type="checkbox" name="questions[]" value="$question[0]">
+                        <input type="checkbox" id="qid-1" name="questions[]" value="$question[0]">
                         <label>$question[1]</label>
                         EOT;
                     }
@@ -67,7 +68,19 @@ while($question = mysqli_fetch_array($questions_query))
                 </div>
                 <div style="grid-area: right-fill;"></div>
             </form>
+            
+            <input type="text" id="question-points",style="grid-area: name-field", name="question-points"> 
             <button type="submit" form="new-assignment-form" value="submit" name="submit">Create assignment</button>
+        
+            <script>
+                //code needs revising, please look at it
+                if (doccument.getElementById("qid-1").onclick == null) {
+                    doccument.getElementById('question-points').style.display =  "hidden";
+                }else if (doccument.getElementById("qid-1").onclick != null) {
+                    doccument.getElementById('question-points').style.display = "block";  
+                }
+            </script>
+        
         </div>
     </div>
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/common/footer.php"); ?>
