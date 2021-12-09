@@ -57,28 +57,24 @@ while($question = mysqli_fetch_array($questions_query))
                 <label for="question-selection" style="grid-area: questions-label;">Questions:</label>
                 <div id="question-selection" style="grid-area: questions-field;">
                     <?php
+
+                    // original code for question population, use if below code doesn't work
+                    // echo <<< EOT
+                    //<input type="checkbox" id="qid-$question[0]" name="questions[]" value="$question[0]">
+                    //<label>$question[1]</label>
+                    //EOT;
                     foreach ($questions as $question){
                         echo <<< EOT
                         <input type="checkbox" id="qid-$question[0]" name="questions[]" value="$question[0]">
-                        <label>$question[1]</label>
+                        <label>$question[1], $question[1] pts:</label>
+                        <input type="text" id="qid-$question[3]",style="grid-area: name-field", name="$question[3]"> 
                         EOT;
                     }
                     ?>
                 </div>
                 <div style="grid-area: right-fill;"></div>
             </form>
-
-            <input type="text" id="question-points",style="grid-area: name-field", name="question-points"> 
             <button type="submit" form="new-assignment-form" value="submit" name="submit">Create assignment</button>
-            
-            <script>
-                //code needs revising, please look at it
-                if (doccument.getElementById("qid-1").onclick == null) {
-                    doccument.getElementById('question-points').style.display =  "hidden";
-                }else if (doccument.getElementById("qid-1").onclick != null) {
-                    doccument.getElementById('question-points').style.display = "block";  
-                }
-            </script>
         
         </div>
     </div>
