@@ -26,3 +26,17 @@
   font-family: var(--body-font-face);
   font-weight: var(--login-toolbar-font-weight);
 }
+
+textarea {
+  border-width: 5px;
+  border-color: var(--lightmode-primary-3);
+  background-color: var(--lightmode-complement-2);
+  height: 275px;
+  width: 500px;
+  border-radius: 4px;
+  resize: none;
+}
+
+select {
+  background-color: var(--lightmode-complement-2);
+}

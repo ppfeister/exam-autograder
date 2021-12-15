@@ -44,15 +44,37 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
                     if($course[3] == 2)
                         require_once($_SERVER['DOCUMENT_ROOT'] . "/assignments/instructor-toolbar.php");
                     echo "<div class=\"course-assignment-list\">";
-                    foreach($assignments as $assignment)
+                    foreach($assignments as $assignment) {
+                        if($course[3] != 2) {
+                            $assignment_grade_query = mysqli_query($con, "SELECT submitted.`Score`, submitted.`Corrected Score`, qsets.`Points` FROM `courses`.`submitted-answers` as submitted INNER JOIN `courses`.`question-sets` as qsets WHERE submitted.`Assignment ID` = $assignment[0] AND submitted.`Member GUID` = $userguid AND qsets.`Assignment ID` = submitted.`Assignment ID` AND qsets.`Question ID` = submitted.`Question ID`;");
+                            $assignment_grade[0] = 0;
+                            $assignment_grade[1] = 0;
+                            while ($question_grades = mysqli_fetch_array($assignment_grade_query)) {
+                                if ($question_grades[1] !== null)
+                                    $assignment_grade[0] += $question_grades[1];
+                                else
+                                    $assignment_grade[0] += $question_grades[0];
+                                $assignment_grade[1] += $question_grades[2];
+                            }
+                        }
+                        if($course[3] != 2)
+                            echo "<a href=\"/assignments/?aid=$assignment[0]\">";
+                        else
+                            echo "<a href=\"/assignments/manage/?aid=$assignment[0]\">";
                         echo <<< EOT
-                                <a href="/assignments/?aid=$assignment[0]">
                                     <div class="assignment-listing">
                                         <span class="assignment-name">$assignment[1]</span>
-                                        <span class="assignment-duedate">$assignment[3]<span class="material-icons-sharp status-icon">task</span></span>
+                                        <span class="assignment-data">
+                        EOT;
+                        if($course[3] != 2)
+                            echo "<span class=\"assignment-score\">$assignment_grade[0] / $assignment_grade[1]</span>";
+                        echo <<< EOT
+                                            <span class="assignment-duedate">$assignment[3]<span class="material-icons-sharp status-icon">task</span></span>
+                                        </span>
                                     </div>
                                 </a>
                         EOT;
+                    }
                     echo <<< EOT
                             </div>
                         </div>
@@ -61,7 +83,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false)
             }
             ?>
         </div>
-        <?php require_once('../common/footer.php'); ?>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/common/footer.php"); ?>
     </div>
 </body>
 </html>

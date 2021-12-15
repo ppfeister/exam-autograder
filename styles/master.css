@@ -2,6 +2,7 @@
 @import "fonts.css";
 @import "forms.css";
 @import "sidebars.css";
+@import "split.css";
 
 /* reset browser default style */
 * {
@@ -91,7 +92,7 @@ button:hover {
   box-shadow: 0 1px 5px 0 var(--lightmode-shadow-1);
 }
 
-.section-main > h2 {
+h2 {
   font-size: 1.3em;
   border-bottom-width: 1px;
   border-style: solid;
