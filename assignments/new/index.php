@@ -17,7 +17,10 @@ if(isset($_POST['submit'])) {
     $new_assignment_id = $con->insert_id;
     foreach ($questions_submitted as $qid) {
         $qid = (int)$qid;
-        mysqli_query($con, "INSERT INTO `courses`.`question-sets` (`Assignment ID`, `Question ID`, `Points`) VALUES ($new_assignment_id, $qid, 5);");
+        $points = 5;
+        if($_POST["qpt-$qid"] != "")
+            $points = $_POST["qpt-$qid"];
+        mysqli_query($con, "INSERT INTO `courses`.`question-sets` (`Assignment ID`, `Question ID`, `Points`) VALUES ($new_assignment_id, $qid, $points);");
     }
 }
 ?>
@@ -59,8 +62,11 @@ while($question = mysqli_fetch_array($questions_query))
                     <?php
                     foreach ($questions as $question){
                         echo <<< EOT
-                        <input type="checkbox" id="qid-$question[0]" name="questions[]" value="$question[0]">
-                        <label>$question[1]</label>
+                        <div class="assignment-option">
+                            <input type="checkbox" id="qid-$question[0]" name="questions[]" value="$question[0]">
+                            (<input type="number" id="qpt-$question[0]" name="qpt-$question[0]" value="5" min="0" max="20"> points)
+                            <label>$question[1]</label>
+                        </div>
                         EOT;
                     }
                     ?>

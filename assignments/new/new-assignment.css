@@ -36,3 +36,21 @@ form input[type=text] {
   border-width: 1px;
   border-color: var(--lightmode-primary-1);
 }
+
+.assignment-option:not(:first-of-type) {
+  margin-top: 0.1rem;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  width: 1.2rem;
+  border-style: solid;
+  border-width: 0 0 1px;
+  border-color: black;
+}

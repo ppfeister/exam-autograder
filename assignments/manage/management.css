@@ -1,0 +1,75 @@
+.student-header {
+  margin: 0 -1rem;
+  padding: 0.2rem 1rem 0;
+  display: grid;
+  grid-template-areas: "stu-name stu-bitlab-grade stu-corrected-grade";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.student-header:hover {
+  background-color: var(--lightmode-primary-2);
+  cursor: pointer;
+}
+
+.student-header.active {
+  background-color: var(--lightmode-primary-1);
+}
+
+.student-info {
+  margin: 0 -1rem;
+  padding: 0 1rem 0;
+  background-color: var(--lightmode-primary-2);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.student-info > .content {
+  padding: 0.5rem 0;
+}
+
+.question-row {
+  display: grid;
+  grid-template-areas: "question answer grades";
+  grid-template-columns: 1fr 1fr auto;
+}
+
+.question-row:not(:first-of-type) {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-style: dotted;
+  border-top-width: 1px;
+  border-color: black;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  width: 2.2rem;
+  border-style: solid;
+  border-width: 0 0 1px;
+  border-color: black;
+}
+
+.score-button-icon {
+  font-size: 1.1em !important;
+  vertical-align: middle;
+  transition: transform 0.2s ease-in;
+}
+
+.score-button-icon:hover {
+  transform: rotate(-135deg);
+}
+
+.grade-col {
+  text-align: right;
+}
+
+.grade-col > form {
+  display: inline-block;
+}
