@@ -27,23 +27,16 @@
   font-weight: var(--login-toolbar-font-weight);
 }
 
-.textbox-small {
-  border: 3px var(--lightmode-primary-3);
-  background-color: var(--lightmode-complement-2);
-  outline: 0;
-  height: 25px;
-  width: 275px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-}
-
 textarea {
-  border: 3px var(--lightmode-primary-3);
+  border-width: 5px;
+  border-color: var(--lightmode-primary-3);
   background-color: var(--lightmode-complement-2);
-  outline: 0;
   height: 275px;
   width: 500px;
-  border: 2px solid #ccc;
   border-radius: 4px;
   resize: none;
+}
+
+select {
+  background-color: var(--lightmode-complement-2);
 }

@@ -25,7 +25,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/srv_utils/dbconfig.php");
 
 $userguid = $_SESSION['guid'];
 $assignment_info = mysqli_fetch_array(mysqli_query($con, "SELECT course.`Course Code`, assignments.`Assignment name`, assignments.`Allow resubmit` from `courses`.`assignments` as assignments INNER JOIN `courses`.`available-courses` as course INNER JOIN `courses`.`course-membership` as membership WHERE assignments.`Assignment ID` = $req_aid AND assignments.`Course GUID` = membership.`Course GUID` = course.`Course GUID` AND membership.`Member GUID` = $userguid;"));
-$assignment_query = mysqli_query($con, "SELECT assignments.`Assignment ID`, assignments.`Assignment name`, course.`Course Code`, qset.`Question ID`, qset.`Points`, questions.`Question Name`, questions.`Question Prompt`, questions.`Question Skeleton`, questions.`Code Language`, languages.`Ace`, questions.`Question Tests`, questions.`Question Validation` from `courses`.`assignments` as assignments INNER JOIN `courses`.`available-courses` as course INNER JOIN `courses`.`course-membership` as membership INNER JOIN `courses`.`languages-avail` as languages INNER JOIN `courses`.`question-sets` as qset INNER JOIN `courses`.`saved-questions` as questions WHERE assignments.`Assignment ID` = qset.`Assignment ID` AND assignments.`Assignment ID` = $req_aid AND assignments.`Course GUID` = membership.`Course GUID` = course.`Course GUID` AND membership.`Member GUID` = $userguid AND qset.`Question ID` = questions.`Question ID` AND questions.`Code Language` = languages.`Human-readable`;");
+$assignment_query = mysqli_query($con, "SELECT assignments.`Assignment ID`, assignments.`Assignment name`, course.`Course Code`, qset.`Question ID`, qset.`Points`, questions.`Question Name`, questions.`Question Prompt`, questions.`Question Skeleton`, questions.`Code Language`, languages.`Ace` from `courses`.`assignments` as assignments INNER JOIN `courses`.`available-courses` as course INNER JOIN `courses`.`course-membership` as membership INNER JOIN `courses`.`languages-avail` as languages INNER JOIN `courses`.`question-sets` as qset INNER JOIN `courses`.`saved-questions` as questions WHERE assignments.`Assignment ID` = qset.`Assignment ID` AND assignments.`Assignment ID` = $req_aid AND assignments.`Course GUID` = membership.`Course GUID` = course.`Course GUID` AND membership.`Member GUID` = $userguid AND qset.`Question ID` = questions.`Question ID` AND questions.`Code Language` = languages.`Human-readable`;");
 $questions = [];
 while($question = mysqli_fetch_array($assignment_query))
     $questions[] = $question;
@@ -59,8 +59,8 @@ while($question = mysqli_fetch_array($assignment_query))
                 <!--<span style="grid-area: right-fill;"></span>-->
                 <!--<a href="#" style="grid-area: reset;" title="Revert to skeleton"><span class="material-icons-sharp">restart_alt</span></a>-->
                 <span class="question-score">$current_score / $question[4] points</span>
-                <a href="#" style="grid-area: stop;" title="Abort"><span class="material-icons-sharp">stop</span></a>
-                <a href="#" style="grid-area: run;" title="Run"><span class="material-icons-sharp">play_arrow</span></a>
+                <!--<a href="#" style="grid-area: stop;" title="Abort"><span class="material-icons-sharp">stop</span></a>-->
+                <!--<a href="#" style="grid-area: run;" title="Run"><span class="material-icons-sharp">play_arrow</span></a>-->
                 <!--<a href="/assignments?aid=000001,q=1" style="grid-area: next-q-submit;" title="Next question">Next <span class="material-icons-sharp">arrow_forward</span></a>-->
                 <a href="#" onclick="submit_q$question[3]()" style="grid-area: next-q-submit;" title="Submit assignment">Submit <span class="material-icons-sharp">done</span></a>
             </div>
